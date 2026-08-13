@@ -34,6 +34,11 @@
 .triggerIcon {
   display: inline-flex;
   flex: 0 0 auto;
+  box-sizing: content-box;
+  padding: 3px;
+  border-radius: 8px 9px 7px 9px;
+  background: var(--dsw-specific-island-icon-lilac);
+  color: var(--dsw-specific-island-icon-ink);
 }
 
 /* The shared 16px glyphs render one step smaller on the exposed trigger;

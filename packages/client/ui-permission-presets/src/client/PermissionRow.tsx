@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import type { SnapshotStore } from '@deepseek-ai/dsh-client-runtime/client'
 import type { InjectFace, PropsLocale, PropsRuntime } from '@deepseek-ai/dsh-client-ui-slots'
 import {
-  IconChevronDownOutline14, Menu, RiskConfirmation,
+  IconChevronDownOutline14, IconUserOutline16, Menu, RiskConfirmation,
 } from '@deepseek-ai/dsh-client-ui-primitives'
 import type { PermissionSettingsState } from './settings-store.ts'
 import type { PermissionSettingsKey } from './locales.ts'
@@ -65,6 +65,7 @@ export function PermissionRow({ load, select, usePermission, t }: PermissionRowP
   return (
     <>
       <div className={css.row}>
+        <span className={css.rowIcon} aria-hidden="true"><IconUserOutline16 /></span>
         <div className={css.rowText}>
           <div className={css.title}>{t('title')}</div>
           <div className={css.desc} role={state.error === null ? undefined : 'alert'}>{description}</div>

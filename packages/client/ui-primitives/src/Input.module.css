@@ -4,13 +4,20 @@
   gap: 6px;
   height: 32px;
   padding: 0 8px;
-  border: 1px solid var(--dsw-alias-border-l2);
-  border-radius: 8px;
-  background: var(--dsw-alias-bg-layer-1);
+  box-sizing: border-box;
+  border: 2px solid var(--dsw-alias-border-l3);
+  border-radius: var(--dsw-radius-pill);
+  background: var(--dsw-specific-input-major);
+  transition:
+    transform var(--ds-transition-duration) var(--ds-ease-in-out),
+    border-color var(--ds-transition-duration) var(--ds-ease-in-out),
+    box-shadow var(--ds-transition-duration) var(--ds-ease-in-out);
 }
 
 .wrap:focus-within {
-  border-color: var(--dsw-alias-brand-primary);
+  border-color: var(--dsw-alias-state-warn-primary);
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--dsw-alias-state-warn-primary) 55%, transparent);
+  transform: translateY(-1px);
 }
 
 .icon {
@@ -31,6 +38,7 @@
   font-size: 14px;
   line-height: 22px;
   color: var(--dsw-alias-label-primary);
+  font-weight: 500;
 }
 
 .input::placeholder {

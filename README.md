@@ -10,6 +10,23 @@ It uses an architecture where **everything is a plugin**, and is powered by [Cor
 
 DeepSeek Harness is currently in _developer preview_ and is iterating rapidly. **THERE WILL BE COMPATIBILITY-BREAKING CHANGES.**
 
+## Web UI preview
+
+<p align="center"><img src="screenshot/light-home.png" alt="DeepSeek Harness light-theme new-session screen" width="100%"></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td width="50%"><img src="screenshot/dark-home.png" alt="DeepSeek Harness dark-theme new-session screen"></td>
+      <td width="50%"><img src="screenshot/light-conversation.png" alt="DeepSeek Harness conversation screen"></td>
+    </tr>
+    <tr>
+      <td width="50%"><img src="screenshot/light-settings.png" alt="DeepSeek Harness appearance settings"></td>
+      <td width="50%"><img src="screenshot/agent-presets.png" alt="DeepSeek Harness Agent preset settings"></td>
+    </tr>
+  </tbody>
+</table>
+
 ## Run
 
 ### Run from `npm`

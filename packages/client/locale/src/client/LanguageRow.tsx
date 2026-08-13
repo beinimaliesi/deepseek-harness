@@ -1,12 +1,12 @@
 /**
  * Language preference row registered into the General section item slot
- * (figma 501:30011 'Setting-Cell'): title + selector pill opening the locale
+ * as a labeled function row plus a selector pill opening the locale
  * menu. Registered by this package — the locale feature owns its own
  * settings surface.
  */
 import { useState } from 'react'
 import type { PropsLocale, PropsRuntime, PropsStore } from '@deepseek-ai/dsh-client-ui-slots'
-import { IconChevronDownOutline14, Menu } from '@deepseek-ai/dsh-client-ui-primitives'
+import { IconChevronDownOutline14, IconGlobeOutline14, Menu } from '@deepseek-ai/dsh-client-ui-primitives'
 import type {} from '@deepseek-ai/dsh-client-ui-settings/client'
 import type { createLanguageRowStore } from './settings-store.ts'
 import css from './LanguageRow.module.css'
@@ -35,6 +35,7 @@ export function LanguageRow({ t, setLocale, useStore }: LanguageRowComponentProp
 
   return (
     <div className={css.row}>
+      <span className={css.rowIcon} aria-hidden="true"><IconGlobeOutline14 size={16} /></span>
       <div className={css.rowText}>
         <div className={css.title}>{t('language.title')}</div>
       </div>

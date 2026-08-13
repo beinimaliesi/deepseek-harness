@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import type { SnapshotStore } from '@deepseek-ai/dsh-client-runtime/client'
 import type { InjectFace, PropsLocale, PropsRuntime } from '@deepseek-ai/dsh-client-ui-slots'
-import { IconChevronDownOutline14, Menu } from '@deepseek-ai/dsh-client-ui-primitives'
+import { IconChevronDownOutline14, IconQueueOutline14, Menu } from '@deepseek-ai/dsh-client-ui-primitives'
 import type { BusyEnterBehavior } from '../contract/composer-submission.ts'
 import type { ConversationKey } from '../locales.ts'
 import css from './EnterBehaviorRow.module.css'
@@ -43,6 +43,7 @@ export function EnterBehaviorRow({ useBusyEnter, setBusyEnter, t }: EnterBehavio
 
   return (
     <div className={css.row}>
+      <span className={css.rowIcon} aria-hidden="true"><IconQueueOutline14 size={16} /></span>
       <div className={css.rowText}>
         <div className={css.title}>{t('settings.enter.title')}</div>
         <div className={css.desc}>{t('settings.enter.description')}</div>

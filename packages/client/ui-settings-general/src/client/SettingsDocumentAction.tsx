@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 import type { ReactNode } from 'react'
-import { Button } from '@deepseek-ai/dsh-client-ui-primitives'
+import { Button, IconFolderOpenOutline16 } from '@deepseek-ai/dsh-client-ui-primitives'
 import type { PropsLocale, PropsRuntime } from '@deepseek-ai/dsh-client-ui-slots'
 import type { SnapshotSelectorHook } from '@deepseek-ai/dsh-client-web-react'
 import type { SettingsDocumentState, SettingsDocumentStore } from './settings-document-store.ts'
@@ -43,6 +43,7 @@ export function SettingsDocumentAction({ controller, useSnapshot, t }: SettingsD
         disabled={state.opening}
         onClick={() => { void controller.open() }}
       >
+        <span aria-hidden="true"><IconFolderOpenOutline16 size={14} /></span>
         {t('openDocument')}
       </Button>
     </div>

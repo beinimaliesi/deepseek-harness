@@ -7,13 +7,18 @@
   justify-content: center;
   gap: 4px;
   border: none;
-  border-radius: 18px;
+  border-radius: var(--dsw-radius-pill);
   cursor: pointer;
   font-size: 14px;
   line-height: 22px;
   color: var(--dsw-alias-label-primary);
   background: transparent;
   padding: 0 14px;
+  font-weight: 700;
+  transition:
+    transform var(--ds-transition-duration-fast) var(--ds-ease-in-out),
+    background-color var(--ds-transition-duration) var(--ds-ease-in-out),
+    box-shadow var(--ds-transition-duration-fast) var(--ds-ease-in-out);
 }
 
 .button:disabled {
@@ -32,16 +37,24 @@
   font-size: 12px;
   line-height: 18px;
   padding: 0 10px;
-  border-radius: 14px;
+  border-radius: var(--dsw-radius-pill);
 }
 
 .primary {
   background: var(--dsw-alias-button-primary-fill);
   color: var(--dsw-alias-label-primary-foreground);
+  box-shadow: var(--dsw-shadow-control);
 }
 
 .primary:hover:not(:disabled) {
   background: var(--dsw-alias-button-primary-hover);
+  box-shadow: var(--dsw-shadow-control-hover);
+  transform: translateY(-1px);
+}
+
+.primary:active:not(:disabled) {
+  box-shadow: var(--dsw-shadow-control-active);
+  transform: translateY(3px);
 }
 
 .ghost:hover:not(:disabled) {
@@ -54,12 +67,15 @@
 
 /* Dialog Cancel (figma 451:18655): bordered capsule on transparent fill. */
 .outline {
-  border: 1px solid var(--dsw-alias-border-l2);
-  background: transparent;
+  border: 2px solid var(--dsw-alias-border-l3);
+  background: var(--dsw-alias-button-elevated-fill);
+  box-shadow: var(--dsw-shadow-lv1);
 }
 
 .outline:hover:not(:disabled) {
   background: var(--dsw-alias-interactive-bg-hover);
+  box-shadow: var(--dsw-shadow-lv2);
+  transform: translateY(-1px);
 }
 
 .toolbar {

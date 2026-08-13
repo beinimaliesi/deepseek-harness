@@ -17,6 +17,8 @@ body,
 
 body {
   font-family: var(--dsw-font-family);
+  font-weight: 500;
+  letter-spacing: 0.01em;
   /* Grayscale antialiasing over subpixel rendering: WebKit/Blink and the
      Firefox macOS equivalent; other engines ignore both lines. */
   -webkit-font-smoothing: antialiased;
@@ -33,4 +35,29 @@ input,
 select,
 textarea {
   font-family: inherit;
+}
+
+button {
+  letter-spacing: 0.02em;
+}
+
+::selection {
+  color: var(--dsw-alias-label-primary);
+  background: var(--dsw-specific-bubble-highlight);
+}
+
+:focus-visible {
+  outline: 3px solid var(--dsw-alias-state-warn-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

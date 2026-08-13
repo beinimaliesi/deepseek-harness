@@ -1,19 +1,26 @@
 body {
-  --dsw-linear-gradient-think: linear-gradient(180deg, #fff 20.19%, rgba(255, 255, 255, 0) 100%);
-  --dsw-linear-think-select: linear-gradient(180deg, #f5f6f7 20.19%, rgba(245, 246, 247, 0) 100%);
+  --dsw-linear-gradient-think: linear-gradient(180deg, #fffdf2 20.19%, rgba(255, 253, 242, 0) 100%);
+  --dsw-linear-think-select: linear-gradient(180deg, #f7f1df 20.19%, rgba(247, 241, 223, 0) 100%);
   /* 阴影 */
-  --dsw-shadow-lv1: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
-  --dsw-shadow-lv1-blur: 0 4px 12px 0 rgba(0, 0, 0, 0.02);
-  --dsw-shadow-lv2: 0 4px 12px 0 rgba(0, 0, 0, 0.02), 0 2px 8px 0 rgba(0, 0, 0, 0.04);
+  --dsw-shadow-lv1: 0 2px 4px 0 rgba(63, 48, 36, 0.08);
+  --dsw-shadow-lv1-blur: 0 4px 12px 0 rgba(63, 48, 36, 0.05);
+  --dsw-shadow-lv2: 0 3px 0 rgba(111, 75, 42, 0.1), 0 8px 20px rgba(63, 48, 36, 0.1);
   --dsw-shadow-lv3:
-    0 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 4px 0 rgba(0, 0, 0, 0.02), 0 12px 32px 0 rgba(0, 0, 0, 0.08);
+    0 2px 0 rgba(111, 75, 42, 0.12), 0 8px 20px rgba(63, 48, 36, 0.1),
+    0 20px 48px rgba(63, 48, 36, 0.12);
   /* blur filter */
   --dsw-mask-blur: blur(2px);
 }
 
 body[data-ds-dark-theme] {
-  --dsw-linear-gradient-think: linear-gradient(180deg, #151517 20.19%, rgba(21, 21, 23, 0) 100%);
-  --dsw-linear-think-select: linear-gradient(180deg, #232325 20.19%, rgba(35, 35, 37, 0) 100%);
+  --dsw-linear-gradient-think: linear-gradient(180deg, #1f3933 20.19%, rgba(31, 57, 51, 0) 100%);
+  --dsw-linear-think-select: linear-gradient(180deg, #395f54 20.19%, rgba(57, 95, 84, 0) 100%);
+  --dsw-shadow-lv1: 0 2px 4px 0 rgba(12, 25, 22, 0.18);
+  --dsw-shadow-lv1-blur: 0 4px 12px 0 rgba(12, 25, 22, 0.14);
+  --dsw-shadow-lv2: 0 3px 0 rgba(12, 25, 22, 0.26), 0 8px 20px rgba(12, 25, 22, 0.2);
+  --dsw-shadow-lv3:
+    0 2px 0 rgba(12, 25, 22, 0.28), 0 8px 20px rgba(12, 25, 22, 0.22),
+    0 20px 48px rgba(12, 25, 22, 0.26);
 }
 
 /* ---------- 字体 ---------- */

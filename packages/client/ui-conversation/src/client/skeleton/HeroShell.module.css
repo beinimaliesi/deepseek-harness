@@ -34,13 +34,18 @@
   justify-content: center;
   font-size: 26px;
   line-height: 32px;
-  font-weight: 500;
+  font-weight: 800;
   color: var(--dsw-alias-label-primary);
 }
 
 .headlineText {
   grid-row: 1;
   grid-column: 2;
+  padding: 6px 18px;
+  border: 2px solid var(--dsw-alias-border-l2);
+  border-radius: var(--dsw-radius-pill);
+  background: var(--dsw-alias-bg-layer-1);
+  box-shadow: 0 4px 0 var(--dsw-alias-border-l2);
 }
 
 .previewBadge {
@@ -50,14 +55,14 @@
   margin-top: 2px;
   margin-left: -3px;
   padding: 1px 7px 0;
-  border: 1px solid var(--dsw-alias-interactive-bg-hover);
-  border-radius: 24px;
-  background: var(--dsw-alias-state-business-tertiary);
-  color: var(--dsw-alias-label-primary-bluish);
-  font-family: var(--ds-font-family-code);
+  border: 2px solid var(--dsw-alias-state-warn-primary);
+  border-radius: var(--dsw-radius-pill);
+  background: var(--dsw-static-amber-100);
+  color: var(--dsw-static-amber-900);
+  font-family: var(--dsw-font-family);
   font-size: 12px;
   line-height: 18px;
-  font-weight: 500;
+  font-weight: 700;
   white-space: nowrap;
 }
 
@@ -72,7 +77,7 @@
 
 /* Keep the hero mark in the same primary ink as its headline. */
 .fish {
-  color: var(--dsw-alias-label-primary);
+  color: var(--dsw-alias-state-business-primary);
   transform-origin: 50% 60%;
 }
 
@@ -132,19 +137,20 @@
   max-width: min(100%, 360px);
   min-height: 28px;
   padding: 0 8px;
-  border: none;
-  border-radius: 16px;
-  background: transparent;
+  border: 2px solid transparent;
+  border-radius: var(--dsw-radius-pill);
+  background: color-mix(in srgb, var(--dsw-alias-bg-layer-1) 78%, transparent);
   color: var(--dsw-alias-label-primary);
   font-size: 13px;
   line-height: 20px;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
 }
 
 .workspace:not(:disabled):hover,
 .workspace[aria-expanded='true'] {
   background: var(--dsw-alias-interactive-bg-hover);
+  border-color: var(--dsw-alias-border-l2);
 }
 
 /* Locked form (bound guidance state): a static echo — no hover feedback, no

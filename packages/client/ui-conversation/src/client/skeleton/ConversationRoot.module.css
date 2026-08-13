@@ -8,7 +8,9 @@
   flex-direction: column;
   height: 100%;
   min-width: 0;
-  background: var(--dsw-alias-bg-base);
+  background-color: var(--dsw-alias-bg-base);
+  background-image: var(--dsw-island-pattern);
+  background-size: 56px 56px;
 
   /* Shared width axis for the whole column: one content width W
      (--dsh-chat-content-width) for the transcript, the dock cards
@@ -338,6 +340,7 @@
   aspect-ratio: 1051 / 468;
   transform: translate(-50%, 50%);
   pointer-events: none;
+  color: var(--dsw-alias-state-business-primary);
 }
 
 .heroWorkspaceRow {

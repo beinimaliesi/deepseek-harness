@@ -7,6 +7,7 @@
 import { useEffect, useState } from 'react'
 import type { SnapshotStore } from '@deepseek-ai/dsh-client-runtime/client'
 import type { InjectFace, PropsLocale, PropsRuntime } from '@deepseek-ai/dsh-client-ui-slots'
+import { IconAgentPresetOutline16 } from '@deepseek-ai/dsh-client-ui-primitives'
 import type { AgentPresetSettingsState } from './settings-store.ts'
 import { presetDisplayText, type AgentPresetSettingsKey } from './locales.ts'
 import { PresetMenu } from './PresetMenu.tsx'
@@ -61,6 +62,7 @@ export function AgentPresetRow({ load, select, useAgentPreset, t }: AgentPresetR
 
   return (
     <div className={css.row}>
+      <span className={css.rowIcon} aria-hidden="true"><IconAgentPresetOutline16 /></span>
       <div className={css.rowText}>
         <div className={css.title}>{t('title')}</div>
         <div className={css.desc} role={state.error === null ? undefined : 'alert'}>{description}</div>

@@ -3,10 +3,25 @@
 .row {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   padding: 16px 0;
   border-bottom: 1px solid var(--dsw-alias-border-l2);
 }
+
+.rowIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px 14px 11px 13px;
+  background: var(--dsw-specific-island-icon-lilac);
+  color: var(--dsw-specific-island-icon-ink);
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--dsw-specific-island-icon-lilac) 62%, var(--dsw-specific-island-icon-ink));
+  transition: transform var(--ds-transition-duration-fast) var(--ds-ease-in-out);
+}
+
+.row:hover .rowIcon { transform: rotate(-5deg) translateY(-1px); }
 
 .rowText {
   flex: 1;
@@ -19,7 +34,7 @@
 
 .title {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 22px;
   color: var(--dsw-alias-label-primary);
 }

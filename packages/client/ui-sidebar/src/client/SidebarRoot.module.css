@@ -16,6 +16,7 @@
   background: var(--dsw-specific-sidebar-fill);
   color: var(--dsw-alias-label-primary);
   font-size: 14px;
+  font-weight: 600;
   /* The sidebar is elevated above the conversation surface, so a revealed
      scrollbar uses the l2 pair. .quietBars hides it without changing layout. */
   --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2);
@@ -132,7 +133,7 @@
   width: 28px;
   height: 28px;
   border: none;
-  border-radius: 50%;
+  border-radius: var(--dsw-radius-sm);
   padding: 0;
   background: transparent;
   cursor: pointer;
@@ -141,6 +142,16 @@
 
 .iconButton:hover {
   background: var(--dsw-alias-interactive-bg-hover);
+}
+
+.iconButton svg,
+.newSession svg {
+  transition: transform var(--ds-transition-duration-fast) var(--ds-ease-in-out);
+}
+
+.iconButton:hover svg,
+.newSession:hover svg {
+  transform: rotate(-6deg) scale(1.06);
 }
 
 .collapsed .iconButton {
@@ -169,8 +180,7 @@
   color: var(--dsw-alias-label-primary);
 }
 
-/* New Session: 38px bar, 12px radius (figma 133:7634 geometry, squared-off
-   corners); collapsed it renders as the rail's plain icon control. */
+/* New Session is the sidebar's tactile primary action. */
 .newSession {
   flex: none;
   display: flex;
@@ -181,19 +191,31 @@
   padding: 8px 16px;
   margin: 0 2px 8px;
   box-sizing: border-box;
-  border: 1px solid var(--dsw-alias-border-l2);
-  border-radius: 12px;
+  border: 2px solid var(--dsw-alias-border-l3);
+  border-radius: var(--dsw-radius-pill);
   background: var(--dsw-alias-button-elevated-fill);
   color: var(--dsw-alias-label-primary);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 22px;
   cursor: pointer;
   overflow: hidden;
+  box-shadow: 0 3px 0 var(--dsw-alias-border-l3);
+  transition:
+    transform var(--ds-transition-duration-fast) var(--ds-ease-in-out),
+    background-color var(--ds-transition-duration) var(--ds-ease-in-out),
+    box-shadow var(--ds-transition-duration-fast) var(--ds-ease-in-out);
 }
 
 .newSession:hover {
   background: var(--dsw-alias-button-floating-hover);
+  box-shadow: 0 4px 0 var(--dsw-alias-border-l3);
+  transform: translateY(-1px);
+}
+
+.newSession:active {
+  box-shadow: 0 1px 0 var(--dsw-alias-border-l3);
+  transform: translateY(2px);
 }
 
 .collapsed .newSession {
@@ -205,10 +227,13 @@
   gap: 0;
   border-color: transparent;
   background: transparent;
+  box-shadow: none;
 }
 
 .collapsed .newSession:hover {
   background: var(--dsw-alias-interactive-bg-hover);
+  box-shadow: none;
+  transform: none;
 }
 
 .newSessionLabel {

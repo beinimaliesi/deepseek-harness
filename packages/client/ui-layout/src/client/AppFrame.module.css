@@ -5,6 +5,8 @@
   height: 100%;
   overflow: hidden;
   background: var(--dsw-alias-bg-base);
+  background-image: var(--dsw-island-pattern);
+  background-size: 56px 56px;
   /* Collapse/expand animates the tracks on the deepsuite sider curve
      (--ds-ease-in-out / --ds-transition-duration-slow, ui-theme base.css). */
   transition: grid-template-columns var(--ds-transition-duration-slow) var(--ds-ease-in-out);
@@ -26,7 +28,8 @@
   min-width: 0;
   overflow: hidden;
   background: var(--dsw-specific-sidebar-fill);
-  border-right: 1px solid var(--dsw-alias-border-l1);
+  border-right: 2px solid var(--dsw-alias-border-l2);
+  box-shadow: inset -3px 0 0 color-mix(in srgb, var(--dsw-alias-border-l1) 55%, transparent);
 }
 
 .centerCol {
@@ -34,12 +37,16 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  background-color: var(--dsw-alias-bg-base);
+  background-image: var(--dsw-island-pattern);
+  background-size: 56px 56px;
 }
 
 .detailsCol {
   min-width: 0;
   overflow: hidden;
-  border-left: 1px solid var(--dsw-alias-border-l2);
+  border-left: 2px solid var(--dsw-alias-border-l2);
+  background: var(--dsw-alias-bg-layer-1);
 }
 
 /* The details subtree stays mounted at zero width, so its border must not paint
@@ -83,7 +90,7 @@
   transform: translate(-50%, -50%);
   width: 12px;
   height: 32px;
-  border-radius: 10px;
+  border-radius: var(--dsw-radius-pill);
   box-sizing: border-box;
   background: var(--dsw-alias-button-floating-fill);
   border: 1px solid var(--dsw-alias-border-l2-darkmode-thin);

@@ -66,10 +66,10 @@
   /* Input stroke: black/0.10 light, white/0.06 dark (figma darkmode note says
      the input border is one notch weaker than buttons) — exactly the
      l2-darkmode-thin pair. Fill: the input surface token (elevated in dark). */
-  border: 1px solid var(--dsw-alias-border-l2-darkmode-thin);
-  border-radius: 22px;
+  border: 2px solid var(--dsw-alias-border-l2-darkmode-thin);
+  border-radius: var(--dsw-radius-lg);
   background: var(--dsw-specific-input-major);
-  box-shadow: var(--dsw-shadow-lv2);
+  box-shadow: var(--dsw-shadow-input);
   font-size: 16px;
   line-height: 24px;
   /* Elevated surface in dark, same as the menus: the draft scrollport inside
@@ -79,6 +79,16 @@
      (see ui-theme styles/scrollbar.css for the rebinding contract). */
   --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2);
   --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
+  transition:
+    border-color var(--ds-transition-duration) var(--ds-ease-in-out),
+    box-shadow var(--ds-transition-duration) var(--ds-ease-in-out);
+}
+
+.card:focus-within {
+  border-color: var(--dsw-alias-state-warn-primary);
+  box-shadow:
+    0 4px 0 color-mix(in srgb, var(--dsw-alias-state-warn-primary) 45%, var(--dsw-alias-border-l2)),
+    var(--dsw-shadow-lv3);
 }
 
 /* No-workspace trigger state: dashed l4 stroke marks the card as a pick-a-
@@ -96,7 +106,7 @@
   content: '';
   position: absolute;
   inset: -1px;
-  border-radius: 22px;
+  border-radius: var(--dsw-radius-lg);
   background: var(--dsw-alias-border-l4);
   transition: background-color 100ms ease;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='none' rx='22' ry='22' stroke='black' stroke-width='2' stroke-dasharray='4 4'/%3E%3C/svg%3E");
@@ -323,7 +333,7 @@
   gap: 12px;
 }
 
-/* Attach circle (figma + control): 28px, selector fill, primary glyph. */
+/* Attach action uses a compact island-style icon tile. */
 .add {
   display: grid;
   place-items: center;
@@ -331,7 +341,7 @@
   width: 28px;
   height: 28px;
   border: none;
-  border-radius: 999px;
+  border-radius: var(--dsw-radius-sm);
   background: var(--dsw-specific-selector);
   color: var(--dsw-alias-label-primary);
   cursor: pointer;
@@ -341,19 +351,26 @@
   background: var(--dsw-alias-interactive-bg-hover-solid);
 }
 
+.add svg {
+  transition: transform var(--ds-transition-duration-fast) var(--ds-ease-in-out);
+}
+
+.add:hover:not(:disabled) svg {
+  transform: rotate(12deg) scale(1.08);
+}
+
 .add:disabled {
   opacity: 0.5;
   cursor: default;
 }
 
-/* Plan / Read-only / model — native <select>, chip-like closed chrome
-   (figma ToggleButton: 13/20 medium secondary, 12px chevron). */
+/* Plan, permission and model selects keep compact pill chrome. */
 .select {
   max-width: 220px;
   height: 28px;
   padding: 0 20px 0 8px;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--dsw-radius-pill);
   outline: none;
   background-color: transparent;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 4.5L6 7.5L9 4.5' stroke='%2381858C' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -363,7 +380,7 @@
   color: var(--dsw-alias-label-secondary);
   font-size: 13px;
   line-height: 20px;
-  font-weight: 500;
+  font-weight: 700;
   white-space: nowrap;
   cursor: pointer;
   appearance: none;
@@ -378,9 +395,7 @@
   cursor: default;
 }
 
-/* Primary send (figma IconButton 34:10465): 34px circle, #3964FE light /
-   #679EFE dark — the info-fill pair (500→400), NOT button-primary (ink);
-   white glyph; empty text = 0.4 opacity. */
+/* Primary send keeps a compact circular seat and the theme's 3D depth. */
 .primary {
   display: grid;
   place-items: center;
@@ -390,11 +405,13 @@
   border: none;
   border-radius: 999px;
   background: var(--dsw-alias-button-info-fill);
-  /* Static white, not the foreground token: the arrow stays white on the blue
-     fill in both themes (design 34:10465). */
-  color: #fff;
+  color: var(--dsw-alias-label-primary-foreground);
   cursor: pointer;
-  transition: background-color 100ms ease;
+  box-shadow: var(--dsw-shadow-control);
+  transition:
+    transform var(--ds-transition-duration-fast) var(--ds-ease-in-out),
+    background-color var(--ds-transition-duration) var(--ds-ease-in-out),
+    box-shadow var(--ds-transition-duration-fast) var(--ds-ease-in-out);
   /* Opts out of the row's 2px downward shift (.row top pad): the send circle
      keeps its original seat while the smaller chips sit lower. Transform, not
      margin, so flex centering math is untouched. */
@@ -403,6 +420,13 @@
 
 .primary:hover:not(:disabled) {
   background: var(--dsw-alias-button-info-hover);
+  box-shadow: var(--dsw-shadow-control-hover);
+  transform: translateY(-3px);
+}
+
+.primary:active:not(:disabled) {
+  box-shadow: var(--dsw-shadow-control-active);
+  transform: translateY(0);
 }
 
 .primary:disabled {
@@ -414,7 +438,7 @@
   margin-left: 8px;
   padding: 1px 8px;
   border: 1px solid currentColor;
-  border-radius: 4px;
+  border-radius: var(--dsw-radius-sm);
   background: transparent;
   color: inherit;
   font-size: 12px;

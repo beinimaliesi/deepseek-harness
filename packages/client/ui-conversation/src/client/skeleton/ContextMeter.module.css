@@ -6,7 +6,7 @@
   display: inline-flex;
 }
 
-/* Same 28px circular hit target family as the composer's attach button. */
+/* Same 28px icon-tile hit target family as the composer's attach button. */
 .trigger {
   display: grid;
   place-items: center;
@@ -14,8 +14,8 @@
   width: 28px;
   height: 28px;
   border: none;
-  border-radius: 999px;
-  background: transparent;
+  border-radius: 9px 11px 8px 10px;
+  background: var(--dsw-specific-island-icon-sun);
   color: var(--dsw-alias-label-secondary);
   cursor: pointer;
 }
@@ -26,13 +26,13 @@
 
 .track {
   fill: none;
-  stroke: var(--dsw-alias-border-l3);
+  stroke: color-mix(in srgb, var(--dsw-specific-island-icon-ink) 28%, transparent);
   stroke-width: 2;
 }
 
 .fill {
   fill: none;
-  stroke: var(--dsw-alias-label-tertiary);
+  stroke: var(--dsw-specific-island-icon-ink);
   stroke-width: 2;
   stroke-linecap: round;
 }

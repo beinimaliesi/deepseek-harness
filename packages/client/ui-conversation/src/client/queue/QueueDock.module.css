@@ -1,5 +1,4 @@
-/* Figma .FileContainerText 1:791: the wrapper uses the shared dock inset
-   inside the composer card around the inset panel. */
+/* The wrapper uses the shared dock inset around the attached panel. */
 
 .dock {
   box-sizing: border-box;
@@ -30,7 +29,7 @@
   overflow: hidden;
   width: 100%;
   padding: 2px 0;
-  border-radius: 12px 12px 0 0;
+  border-radius: var(--dsw-radius-base) var(--dsw-radius-base) 0 0;
   background: var(--dsw-specific-tip);
   --dsh-scrollbar-thumb: var(--dsw-alias-scrollbar-bg-l2);
   --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
@@ -39,7 +38,7 @@
 .panel::after {
   position: absolute;
   inset: 0;
-  border: 1px solid var(--dsw-alias-border-l1);
+  border: 2px solid var(--dsw-alias-border-l1);
   /* The input card's own top border closes the shape below. */
   border-bottom: none;
   border-radius: inherit;
@@ -78,7 +77,12 @@
   display: grid;
   flex: none;
   place-items: center;
-  color: var(--dsw-alias-label-tertiary);
+  width: 26px;
+  height: 26px;
+  border-radius: 9px 11px 8px 10px;
+  background: var(--dsw-specific-island-icon-coral);
+  color: var(--dsw-specific-island-icon-ink);
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--dsw-specific-island-icon-coral) 62%, var(--dsw-specific-island-icon-ink));
 }
 
 .count {

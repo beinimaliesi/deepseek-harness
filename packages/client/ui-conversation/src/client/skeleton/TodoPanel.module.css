@@ -1,7 +1,5 @@
-/* Todo strip in the composer context stack (Figma 1236:32276): tip surface,
-   status icons + secondary item labels. Its visible card aligns with the
-   GoalBar and the Queue panel inside their shared dock column: 12px radius,
-   36px collapsed row, 12px side padding, 14px tertiary leading glyph. */
+/* Todo strip in the composer context stack: tip surface, status icons and
+   secondary item labels aligned with the sibling dock panels. */
 
 .root {
   box-sizing: border-box;
@@ -24,8 +22,8 @@
     var(--dsh-composer-dock-inset) -
     var(--dsh-composer-dock-inset)
   );
-  border: 1px solid var(--dsw-alias-border-l1);
-  border-radius: 12px;
+  border: 2px solid var(--dsw-alias-border-l1);
+  border-radius: var(--dsw-radius-base);
   background: var(--dsw-specific-tip);
   /* Elevated surface: `--dsw-specific-tip` is the same dark rung as the menu
      surface, and `.list` scrolls inside this card, so the thumb takes the l2
@@ -59,14 +57,19 @@
   display: grid;
   flex: none;
   place-items: center;
-  color: var(--dsw-alias-label-tertiary);
+  width: 26px;
+  height: 26px;
+  border-radius: 9px 11px 8px 10px;
+  background: var(--dsw-specific-island-icon-mint);
+  color: var(--dsw-specific-island-icon-ink);
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--dsw-specific-island-icon-mint) 62%, var(--dsw-specific-island-icon-ink));
 }
 
 .title {
   flex: none;
   font-size: 13px;
   line-height: 24px;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--dsw-alias-label-primary);
 }
 
@@ -137,7 +140,7 @@
   }
 }
 
-/* Figma strip is single-line; long items ellipsize with no inline expand. */
+/* Long items ellipsize with no inline expansion. */
 .content {
   min-width: 0;
   overflow: hidden;
